@@ -1,0 +1,39 @@
+version: '3'
+services:
+  quoridorn:
+    build: ./quoridorn
+    volumes:
+      - ../index.html:/app/index.html
+      - ../package.json:/app/package.json
+      - ../.postcssrc.js:/app/.postcssrc.js
+      - ../build:/app/build
+      - ../config:/app/config
+      - ../src:/app/src
+      - ../static:/app/static
+      - ../test:/app/test
+      - ../DodontoFServer.rb:/app/DondontoFServer.rb
+      - ../.eslintrc.js:/app/.eslintrc.js
+      - ../.eslintignore:/app/.eslintignore
+      - ../.babelrc:/app/.babelrc
+      - ../.command.txt:/app.command.txt
+    ports:
+      - 8080:8080
+    environment:
+      - NODE_ENV=develop
+      - HOST=0.0.0.0
+    command: [npm, run, start]
+
+  # # デプロイツール
+  # quoridorn_firebase:
+  #   build: ./firebase
+  #   env_file: .env
+  #   volumes:
+  #     - ../app/public:/app/public
+  #     - ../backend/functions:/app/functions
+  #     - /app/functions/node_modules
+  #     - ../app/.firebaserc:/app/.firebaserc
+  #     - ../app/firebase.json:/app/firebase.json
+  #     - ../app/firestore.rules:/app/firestore.rules
+  #   ports:
+  #     - 5000:5000
+  #     - 9005:9005
