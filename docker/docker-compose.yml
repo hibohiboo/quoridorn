@@ -7,14 +7,14 @@ services:
       - ../package.json:/app/package.json
       - ../.postcssrc.js:/app/.postcssrc.js
       - ../build:/app/build
-      - ../config:/app/config
+      - ./custom/config:/app/config
       - ../src:/app/src
       - ../static:/app/static
       - ../test:/app/test
       - ../DodontoFServer.rb:/app/DondontoFServer.rb
       - ../.eslintrc.js:/app/.eslintrc.js
       - ../.eslintignore:/app/.eslintignore
-      - ../.babelrc:/app/.babelrc
+      - ./custom/.babelrc:/app/.babelrc
       - ../.command.txt:/app.command.txt
     ports:
       - 8080:8080

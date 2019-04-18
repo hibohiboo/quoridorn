@@ -13,6 +13,7 @@ RUN yarn add skyway-js
 RUN yarn add vue
 RUN yarn add vuex
 RUN yarn add moment
+RUN yarn add  @babel/runtime-corejs2
 
 RUN yarn add --dev autoprefixer
 RUN yarn add --dev chalk
@@ -57,23 +58,34 @@ RUN yarn add --dev webpack-cli
 RUN yarn add --dev webpack-merge
 RUN yarn add --dev webpack-dev-server
 RUN yarn add --dev yaml-loader
+# RUN yarn add global babel-upgrade
 
-RUN yarn add --dev babel-core
 RUN yarn add --dev babel-eslint
 RUN yarn add --dev babel-helper-vue-jsx-merge-props
 RUN yarn add --dev babel-jest
 RUN yarn add --dev babel-plugin-dynamic-import-node
-RUN yarn add --dev babel-plugin-syntax-jsx
-RUN yarn add --dev babel-plugin-transform-es2015-modules-commonjs
-RUN yarn add --dev babel-plugin-transform-runtime
-RUN yarn add --dev babel-plugin-transform-vue-jsx
-RUN yarn add --dev babel-preset-env
-RUN yarn add --dev babel-preset-stage-2
-RUN yarn add --dev babel-register
 RUN yarn add --dev babel-cli
+RUN yarn add --dev @babel/core
+RUN yarn add --dev @babel/plugin-proposal-class-properties
+RUN yarn add --dev @babel/plugin-proposal-decorators
+RUN yarn add --dev @babel/plugin-proposal-export-namespace-from
+RUN yarn add --dev @babel/plugin-proposal-function-sent
+RUN yarn add --dev @babel/plugin-proposal-json-strings
+RUN yarn add --dev @babel/plugin-proposal-numeric-separator
+RUN yarn add --dev @babel/plugin-proposal-throw-expressions
+RUN yarn add --dev @babel/plugin-syntax-dynamic-import
+RUN yarn add --dev @babel/plugin-syntax-import-meta
+RUN yarn add --dev @babel/plugin-syntax-jsx
+RUN yarn add --dev @babel/plugin-transform-modules-commonjs
+RUN yarn add --dev @babel/plugin-transform-runtime
+RUN yarn add --dev @babel/preset-env
+RUN yarn add --dev @babel/register
+
 # babel-loaderはデフォルトだとbabel7.x向けの8.xがインストールされる。 このプロジェクトではbabel6.xが使われているので、それに対応したbabel-loaderの7.xを使う
-RUN yarn add --dev babel-loader@7.x
+RUN yarn add --dev babel-loader
 #
-RUN yarn add --dev vue-style-loader@3.x
-RUN yarn add --dev vue-template-compiler@2.x
+RUN yarn add --dev vue-style-loader
+RUN yarn add --dev vue-template-compiler
+RUN yarn add --dev babel-plugin-transform-vue-jsx@4.x
 RUN yarn add --dev vue-loader@14.x
+

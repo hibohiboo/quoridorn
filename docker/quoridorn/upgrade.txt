@@ -1,0 +1,136 @@
+yarn run v1.15.2
+$ /app/node_modules/.bin/babel-upgrade --install -w
+🙌  Thanks for trying out https://github.com/babel/babel-upgrade !
+
+Updating .babelrc config at .babelrc
+Index: .babelrc
+===================================================================
+--- .babelrc	Before Upgrade
++++ .babelrc	After Upgrade
+@@ -1,8 +1,8 @@
+ {
+   "presets": [
+     [
+-      "env",
++      "@babel/preset-env",
+       {
+         "modules": false,
+         "targets": {
+           "browsers": [
+@@ -11,25 +11,56 @@
+             "not ie <= 8"
+           ]
+         }
+       }
+-    ],
+-    "stage-2"
++    ]
+   ],
+   "plugins": [
+     "transform-vue-jsx",
+-    "transform-runtime"
++    [
++      "@babel/plugin-transform-runtime",
++      {
++        "corejs": 2
++      }
++    ],
++    "@babel/plugin-syntax-dynamic-import",
++    "@babel/plugin-syntax-import-meta",
++    "@babel/plugin-proposal-class-properties",
++    "@babel/plugin-proposal-json-strings",
++    [
++      "@babel/plugin-proposal-decorators",
++      {
++        "legacy": true
++      }
++    ],
++    "@babel/plugin-proposal-function-sent",
++    "@babel/plugin-proposal-export-namespace-from",
++    "@babel/plugin-proposal-numeric-separator",
++    "@babel/plugin-proposal-throw-expressions"
+   ],
+   "env": {
+     "test": {
+       "presets": [
+-        "env",
+-        "stage-2"
++        "@babel/preset-env"
+       ],
+       "plugins": [
+         "transform-vue-jsx",
+-        "transform-es2015-modules-commonjs",
+-        "dynamic-import-node"
++        "@babel/plugin-transform-modules-commonjs",
++        "dynamic-import-node",
++        "@babel/plugin-syntax-dynamic-import",
++        "@babel/plugin-syntax-import-meta",
++        "@babel/plugin-proposal-class-properties",
++        "@babel/plugin-proposal-json-strings",
++        [
++          "@babel/plugin-proposal-decorators",
++          {
++            "legacy": true
++          }
++        ],
++        "@babel/plugin-proposal-function-sent",
++        "@babel/plugin-proposal-export-namespace-from",
++        "@babel/plugin-proposal-numeric-separator",
++        "@babel/plugin-proposal-throw-expressions"
+       ]
+     }
+   }
+ }
+\ No newline at end of file
+
+
+Updating closest package.json dependencies
+Index: /app/package.json
+===================================================================
+--- /app/package.json	Before Upgrade
++++ /app/package.json	After Upgrade
+@@ -23,22 +23,31 @@
+     "webpack-dev-server": "^2.11.1",
+     "yaml-loader": "^0.5.0"
+   },
+   "devDependencies": {
++    "@babel/core": "^7.0.0",
++    "@babel/plugin-proposal-class-properties": "^7.0.0",
++    "@babel/plugin-proposal-decorators": "^7.0.0",
++    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
++    "@babel/plugin-proposal-function-sent": "^7.0.0",
++    "@babel/plugin-proposal-json-strings": "^7.0.0",
++    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
++    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
++    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
++    "@babel/plugin-syntax-import-meta": "^7.0.0",
++    "@babel/plugin-syntax-jsx": "^7.0.0",
++    "@babel/plugin-transform-modules-commonjs": "^7.0.0",
++    "@babel/plugin-transform-runtime": "^7.0.0",
++    "@babel/preset-env": "^7.0.0",
++    "@babel/register": "^7.0.0",
+     "autoprefixer": "^7.1.2",
+-    "babel-core": "^6.22.1",
+-    "babel-eslint": "^8.2.1",
++    "babel-core": "^7.0.0-bridge.0",
++    "babel-eslint": "^9.0.0",
+     "babel-helper-vue-jsx-merge-props": "^2.0.3",
+-    "babel-jest": "^21.0.2",
+-    "babel-loader": "^7.1.1",
++    "babel-jest": "^23.4.2",
++    "babel-loader": "^8.0.0",
+     "babel-plugin-dynamic-import-node": "^1.2.0",
+-    "babel-plugin-syntax-jsx": "^6.18.0",
+-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+-    "babel-plugin-transform-runtime": "^6.22.0",
+     "babel-plugin-transform-vue-jsx": "^3.5.0",
+-    "babel-preset-env": "^1.3.2",
+-    "babel-preset-stage-2": "^6.22.0",
+-    "babel-register": "^6.22.0",
+     "chalk": "^2.0.1",
+     "chromedriver": "^2.27.2",
+     "copy-webpack-plugin": "*",
+     "cross-spawn": "^5.0.1",
+
+
+Done in 0.87s.
