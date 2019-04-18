@@ -89,3 +89,5 @@ RUN yarn add --dev vue-template-compiler
 RUN yarn add --dev babel-plugin-transform-vue-jsx@4.x
 RUN yarn add --dev vue-loader@14.x
 
+# https://koukitips.net/post1967/
+RUN yarn add --dev extract-text-webpack-plugin@next

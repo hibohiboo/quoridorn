@@ -25,9 +25,9 @@ const storeModuleSetting = {
     //  * @param getters
     //  * @param property
     //  */
-    // onSettingMount ({ state }) {
-    //   deckList.forEach(deck => state.cardSet.push(deck))
-    // }
+    onSettingMount({ state }) {
+      deckList.forEach(deck => state.cardSet.push(deck))
+    }
   } /* end of actions */
 }
 export default storeModuleSetting

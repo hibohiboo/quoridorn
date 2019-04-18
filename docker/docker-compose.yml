@@ -6,7 +6,7 @@ services:
       - ../index.html:/app/index.html
       - ../package.json:/app/package.json
       - ../.postcssrc.js:/app/.postcssrc.js
-      - ../build:/app/build
+      - ./custom/build:/app/build
       - ./custom/config:/app/config
       - ../src:/app/src
       - ../static:/app/static
@@ -15,7 +15,8 @@ services:
       - ../.eslintrc.js:/app/.eslintrc.js
       - ../.eslintignore:/app/.eslintignore
       - ./custom/.babelrc:/app/.babelrc
-      - ../.command.txt:/app.command.txt
+      - ../.command.txt:/app/.command.txt
+      - ../dist:/app/dist
     ports:
       - 8080:8080
     environment:

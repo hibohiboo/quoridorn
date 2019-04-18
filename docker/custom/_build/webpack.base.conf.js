@@ -4,7 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -86,6 +86,62 @@ module.exports = {
           }
         ]
       }
+      , {
+        test: /\.css$/,
+        oneOf: [
+          // this applies to <style module>
+          {
+            resourceQuery: /module/,
+            use: [
+              'vue-style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  localIdentName: '[local]_[hash:base64:8]'
+                }
+              }
+            ]
+          },
+          // this applies to <style> or <style scoped>
+          // {
+          //   use: [
+          //     'vue-style-loader',
+          //     'css-loader'
+          //   ]
+          // },
+          // {
+          //   use: [
+          //     'vue-style-loader'
+          //     , {
+          //       loader: 'css-loader',
+          //       options: { importLoaders: 1 }
+          //     }
+          //     , 'postcss-loader'
+          //   ]
+          // }
+          {
+            use: [
+              'vue-style-loader',
+              { loader: 'css-loader', options: { importLoaders: 1 } },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  plugins: (loader) => [
+                    require('postcss-import')({ root: loader.resourcePath }),
+                    require('postcss-url')(),
+                    require('autoprefixer')()
+                  ]
+                }
+              }
+            ]
+          }
+
+
+        ]
+
+      },
     ]
   },
   node: {
